@@ -18,7 +18,7 @@ class button_bayar extends StatelessWidget {
               borderRadius: BorderRadius.circular(9),
               image: DecorationImage(
                   fit: BoxFit.scaleDown,
-                  scale: 13,
+                  scale: 12,
                   image: NetworkImage(
                       "https://cdn-icons-png.flaticon.com/512/1989/1989125.png"))),
           child: Column(

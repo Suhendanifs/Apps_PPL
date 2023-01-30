@@ -18,7 +18,7 @@ class home extends StatelessWidget {
         children: [
           container_title(),
           Container(
-            padding: EdgeInsets.only(top: 20, bottom: 20),
+            padding: EdgeInsets.only(top: 20, bottom: 15),
             child: Column(
               children: [
                 Text(

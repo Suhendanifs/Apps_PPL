@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:pembayaran_1/main.dart';
 
 import 'package:nice_buttons/nice_buttons.dart';
+import 'package:pembayaran_1/pages/konfirmasi.dart';
 
 class pembayaranBulanan extends StatelessWidget {
   const pembayaranBulanan({super.key});
@@ -108,19 +109,25 @@ class pembayaranBulanan extends StatelessWidget {
               ),
               //<=================================================>
               SizedBox(height: 20),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 90),
-                child: NiceButtons(
-                  stretch: false,
-                  onTap: (finish) {
-                    print('On tap called');
-                  },
-                  child: Text(
-                    'Bayar',
-                    style: TextStyle(color: Colors.white, fontSize: 18),
-                  ),
-                ),
-              )
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 130),
+                width: 130,
+                height: 40,
+                decoration: BoxDecoration(
+                    color: Color(0xFF53A4F5),
+                    borderRadius: BorderRadius.circular(20)),
+                child: TextButton(
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => konfirmasi(
+                            "Silahkan transfer terlebih dahulu ke rekening BRI - 0237231289 A/N Kunci  Transformasi Digital dengan jumlah Rp. 2.500.000, jika sudah upload bukti pembayaran."),
+                      ));
+                    },
+                    child: Text(
+                      "Bayar",
+                      style: TextStyle(color: Colors.black, fontSize: 15),
+                    )),
+              ),
             ],
           ),
         ),

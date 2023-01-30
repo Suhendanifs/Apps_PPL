@@ -3,16 +3,29 @@ import 'package:flutter/material.dart';
 import 'package:pembayaran_1/main.dart';
 
 import 'package:nice_buttons/nice_buttons.dart';
+import 'package:pembayaran_1/pages/home.dart';
 import 'package:pembayaran_1/pages/konfirmasi.dart';
 
-class pembayaranBebas extends StatelessWidget {
-  const pembayaranBebas({super.key});
+class detail extends StatelessWidget {
+  const detail({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        leading: Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              icon: const Icon(Icons.home),
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => home(),
+                ));
+              },
+            );
+          },
+        ),
         elevation: 0,
         backgroundColor: Colors.blue[100],
         title: Text(
@@ -28,31 +41,29 @@ class pembayaranBebas extends StatelessWidget {
             children: [
               DropdownSearch<String>(
                 popupProps: PopupProps.menu(
-                  showSelectedItems: true,
+                  showSelectedItems: false,
                 ),
-                items: ["Daffa Akhdan", "Michael ", "Rifki Gema", 'Luffy'],
                 dropdownDecoratorProps: DropDownDecoratorProps(
                   dropdownSearchDecoration: InputDecoration(
                     labelText: "Atas Nama",
                   ),
                 ),
                 onChanged: print,
-                selectedItem: "Nama Siswa",
+                selectedItem: "Daffa Akhdan",
               ),
               SizedBox(height: 30),
               //<=================================================>
               DropdownSearch<String>(
                 popupProps: PopupProps.menu(
-                  showSelectedItems: true,
+                  showSelectedItems: false,
                 ),
-                items: ["2020/2021", "2021/2022", "2022/2023", '2023/2024'],
                 dropdownDecoratorProps: DropDownDecoratorProps(
                   dropdownSearchDecoration: InputDecoration(
                     labelText: "Tahun Ajar",
                   ),
                 ),
                 onChanged: print,
-                selectedItem: "Pilih Tahun Ajar",
+                selectedItem: "2021/2022",
               ),
               SizedBox(height: 30),
               //<=================================================>
@@ -60,67 +71,44 @@ class pembayaranBebas extends StatelessWidget {
                 popupProps: PopupProps.menu(
                   showSelectedItems: true,
                 ),
-                items: [
-                  "Uang Gedung A - Rp. 2.500.000",
-                  "Uang Gedung B - Rp. 200.000",
-                  "Uang Gedung C - Rp. 200.000",
-                ],
                 dropdownDecoratorProps: DropDownDecoratorProps(
                   dropdownSearchDecoration: InputDecoration(
                     labelText: "Daftar Tagihan",
                   ),
                 ),
                 onChanged: print,
-                selectedItem: "Pilih Tagihan",
+                selectedItem: "Uang Gedung - Rp. 2.500.000",
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 160),
-                child: IconButton(
-                  onPressed: (() {}),
-                  icon: Icon(Icons.add_circle_outline),
-                  color: Color(0xFF53A4F5),
-                ),
-              ),
-              SizedBox(height: 30),
+
               //<=================================================>
+              SizedBox(height: 30),
               DropdownSearch<String>(
                 popupProps: PopupProps.menu(
-                  showSelectedItems: true,
+                  showSelectedItems: false,
                 ),
-                items: ["BRI", "BCA", "Go-Pay", 'DANA'],
                 dropdownDecoratorProps: DropDownDecoratorProps(
                   dropdownSearchDecoration: InputDecoration(
                     labelText: "Metode Pembayaran",
                   ),
                 ),
                 onChanged: print,
-                selectedItem: "Pilih Metode Pembayaran",
+                selectedItem: "Bank BRI",
               ),
-              //<=================================================>
-              SizedBox(height: 13),
+              SizedBox(height: 30),
               Text(
-                "Total Bayar : Rp.2.500.000",
-                style: (TextStyle(fontSize: 19, fontWeight: FontWeight.w700)),
+                "File Bukti",
+                style: TextStyle(fontWeight: FontWeight.w500),
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 24),
               Container(
-                margin: EdgeInsets.symmetric(horizontal: 130),
-                width: 130,
-                height: 40,
-                decoration: BoxDecoration(
-                    color: Color(0xFF53A4F5),
-                    borderRadius: BorderRadius.circular(20)),
-                child: TextButton(
-                    onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => konfirmasi(
-                            "Silahkan transfer terlebih dahulu ke rekening BRI - 0237231289 A/N Kunci Transformasi Digital dengan jumlah Rp. 2.500.000, jika sudah upload bukti pembayaran."),
-                      ));
-                    },
-                    child: Text(
-                      "Bayar",
-                      style: TextStyle(color: Colors.black, fontSize: 15),
-                    )),
+                margin: EdgeInsets.symmetric(horizontal: 120),
+                height: 260,
+                width: 150,
+                child: Column(
+                  children: [
+                    Image.asset('data/cc.png'),
+                  ],
+                ),
               ),
             ],
           ),
